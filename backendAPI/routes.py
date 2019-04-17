@@ -1,12 +1,29 @@
 from flask_restful import Resource
 from webargs.flaskparser import use_args
 
-from backendAPI import utils, args, auth
-from backendAPI.constants import misc_webargs
+from backendAPI import args
 
 
-class Login(Resource):
+class OperateUsers(Resource):
+
     @use_args(args.argsGetUsers)
-    def post(self, args):
+    def get(self, args):
+        print("get")
         pass
 
+    @use_args(args.argsPostUsers)
+    def post(self, args):
+        print("post")
+        pass
+
+class OperateUsersId(Resource):
+
+    def get(self, id):
+        print(id)
+        pass
+
+    def put(self, args, id):
+        pass
+
+    def delete(self, args, id):
+        pass

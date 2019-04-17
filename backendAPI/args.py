@@ -1,20 +1,18 @@
-from webargs import fields, validate
+from webargs import fields
 
-import backendAPI.auth
-from backendAPI import constants, utils
+from backendAPI import constants
 
 argsGetUsers = {
-
-    ############### mandatory ######################
-
-    constants.misc_webargs.PAGE.name: fields.Str(
-        
+    constants.Filter.PAGE.name: fields.Int(
     ),
-
-    constants.misc_webargs.LIMIT.name: fields.Str(
-        
+    constants.Filter.LIMIT.name: fields.Int(
     ),
-    constants.misc_webargs.NAME.name : fields.Str(
-        
+    constants.Filter.NAME.name: fields.Str(
+    ),
+    constants.Filter.SORT.name: fields.Str(
     )
+}
+
+argsPostUsers = {
+
 }

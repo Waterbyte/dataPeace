@@ -1,4 +1,7 @@
 from enum import  Enum
 
-class misc_webargs(Enum):
+class Filter(Enum):
     PAGE = 1
+    LIMIT = 2
+    NAME = 3
+    SORT = 4
