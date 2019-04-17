@@ -1,0 +1,2 @@
+use datapeace
+db.users.createIndex({"id": 1}, {"unique": true});
