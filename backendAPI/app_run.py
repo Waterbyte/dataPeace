@@ -16,10 +16,9 @@ api = Api(app)
 def handle_request_parsing_error(err, req, schema, error_status_code, error_headers):
     abort(error_status_code, errors=err.messages)
 
+
 api.add_resource(routes.OperateUsers, '/api/users/')
 api.add_resource(routes.OperateUsersId, '/api/users/<id>')
-
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
