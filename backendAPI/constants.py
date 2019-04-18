@@ -5,7 +5,7 @@ class Filter(Enum):
     page = 1
     limit = 2
     name = 3
-    Sort = 4
+    sort = 4
 
 
 class UserEntry(Enum):

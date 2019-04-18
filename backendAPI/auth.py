@@ -50,24 +50,20 @@ def getUsersWithParams(args):
     sortExpr = [("$natural", pymongo.ASCENDING)]
     skipNum = 0
     projection = {"_id": 0}
-    limitParam = args["limit"]
-    print(args)
-    if "page" in args:
-        skipNum = (args["page"]-1) * limitParam  #page starts from 1
+    limitParam = args[constants.Filter.limit.name]
+    if constants.Filter.page.name in args:
+        skipNum = (args[constants.Filter.page.name]-1) * limitParam  #page starts from 1
 
-    if "name" in args:
-        reg = args["name"]
+    if constants.Filter.name.name in args:
+        reg = args[constants.Filter.name.name]
         expr = {'$or':[{constants.UserEntry.first_name.name:{"$regex":reg, "$options":"$i"}},{constants.UserEntry.last_name.name:{"$regex":reg,"$options":"$i"}}]}
 
-    if "Sort" in args:
-        Sort = args["Sort"]
+    if constants.Filter.sort.name in args:
+        Sort = args[constants.Filter.sort.name]
         if Sort.startswith("-"):
             sortExpr = [(Sort[1:], pymongo.DESCENDING)]
         else:
             sortExpr = [(Sort, pymongo.ASCENDING)]
-
-    print(sortExpr)
-    print(expr)
 
     try:
         cursor = db.find_docs_projection(constants.CollectionName.users.name, expr, projection).limit(limitParam).skip(skipNum).sort(sortExpr)

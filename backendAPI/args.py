@@ -6,7 +6,7 @@ argsGetUsers = {
     constants.Filter.page.name: fields.Int(allow_none=None),
     constants.Filter.limit.name: fields.Int(allow_none=None, missing=5),
     constants.Filter.name.name: fields.Str(allow_none=None),
-    constants.Filter.Sort.name: fields.Str(allow_none=None)
+    constants.Filter.sort.name: fields.Str(allow_none=None)
 }
 
 argsPostUsers = {
