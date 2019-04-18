@@ -4,7 +4,7 @@ from pymongo import MongoClient as mc
 
 def get_db_client():
     if 'dbcl' not in g:
-        g.dbcl = mc('mongodb://localhost:27017/')
+        g.dbcl = mc('mongodb://10.131.65.27:27017/')
     return g.dbcl
 
 

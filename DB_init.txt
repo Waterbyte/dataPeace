@@ -1,2 +1,7 @@
+1. First import user.json supplied
+mongoimport --db datapeace --collection users --type json --file users.json --jsonArray
+
+2. Create index for id
 use datapeace
 db.users.createIndex({"id": 1}, {"unique": true});
+

@@ -57,7 +57,7 @@ def getUsersWithParams(args):
 
     if "name" in args:
         reg = args["name"]
-        expr = {'$or':[{constants.UserEntry.first_name.name:{"$regex":reg}},{constants.UserEntry.last_name.name:{"$regex":reg}}]}
+        expr = {'$or':[{constants.UserEntry.first_name.name:{"$regex":reg, "$options":"$i"}},{constants.UserEntry.last_name.name:{"$regex":reg,"$options":"$i"}}]}
 
     if "Sort" in args:
         Sort = args["Sort"]
